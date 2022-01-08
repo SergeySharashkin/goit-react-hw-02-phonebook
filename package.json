@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://sergeysharashkin.github.io/goit-react-hw-02-phonebook/",
   "dependencies": {
+    "@emotion/react": "^11.7.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -44,7 +45,8 @@
     "eslint": "^8.6.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.5",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "prop-types": "^15.8.1"
   },
   "lint-staged": {
     "*.{js,jsx}": "eslint --cache --fix",
