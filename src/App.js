@@ -1,13 +1,28 @@
-// import logo from "./logo.svg";
-// import "./App.css";
-import FormInput from "./components/phonebook/FormInput";
+import React, { Component } from "react";
+import Form from "./components/Form/Form";
+import ContactList from "./components/ContactList/ContactList";
+import { nanoid } from "nanoid";
 
-function App() {
-  return (
-    <>
-      <FormInput />
-    </>
-  );
+class App extends Component {
+  state = {
+    contacts: [],
+    filter: "",
+  };
+  formSubmitHandler = (data) => {
+    // console.log(data);
+    data.id = nanoid(5);
+    this.setState({ contacts: [...this.state.contacts, data] });
+  };
+
+  render() {
+    const { contacts } = this.state;
+    return (
+      <>
+        <Form onSubmit={this.formSubmitHandler} />
+        <ContactList contacts={contacts} />
+      </>
+    );
+  }
 }
 
 export default App;
