@@ -2,11 +2,15 @@ import React from "react";
 import PropTypes, { shape } from "prop-types";
 import Contact from "./Contact";
 const ContactList = ({ contacts }) => (
-  <ul>
-    {contacts.map(({ id, name, number }) => (
-      <Contact key={id} name={name} number={number} />
-    ))}
-  </ul>
+  <>
+    <h2>Ваши контакты</h2>
+
+    <ul>
+      {contacts.map(({ id, name, number }) => (
+        <Contact key={id} name={name} number={number} />
+      ))}
+    </ul>
+  </>
 );
 export default ContactList;
 ContactList.propTypes = {
