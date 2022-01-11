@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Label, Input, Form } from "./SearchFilterInput.styled";
+import PropTypes from "prop-types";
 
 class SearchFilterInput extends Component {
   state = {
@@ -32,3 +33,6 @@ class SearchFilterInput extends Component {
   }
 }
 export default SearchFilterInput;
+SearchFilterInput.propTypes = {
+  onChange: PropTypes.func,
+};

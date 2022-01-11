@@ -3,7 +3,7 @@ import Form from "./components/Form/Form";
 import ContactList from "./components/ContactList/ContactList";
 import { nanoid } from "nanoid";
 import SearchFilterInput from "./components/SearchFilterInput/SearchFilterInput";
-
+import PropTypes from "prop-types";
 class App extends Component {
   state = {
     contacts: [],
@@ -53,3 +53,13 @@ class App extends Component {
 }
 
 export default App;
+App.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    })
+  ),
+  filter: PropTypes.string,
+};

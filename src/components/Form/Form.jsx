@@ -2,6 +2,7 @@ import React from "react";
 import { Titel } from "../ContactList/ContactList.styled";
 import { AddForm, AddFormLabel, AddFormInput, AddFormBtn } from "./Form.styled";
 // import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 export default class Form extends React.Component {
   state = {
     name: "",
@@ -55,3 +56,6 @@ export default class Form extends React.Component {
     );
   }
 }
+Form.propTypes = {
+  onSubmit: PropTypes.func,
+};
