@@ -1,14 +1,20 @@
 import React from "react";
 import PropTypes, { shape } from "prop-types";
 import Contact from "./Contact";
-const ContactList = ({ contacts, filter }) => (
+const ContactList = ({ contacts, filter, changeId }) => (
   <>
     <h2>Ваши контакты</h2>
 
     <ul>
       {!filter &&
         contacts.map(({ id, name, number }) => (
-          <Contact key={id} name={name} id={id} number={number} />
+          <Contact
+            key={id}
+            name={name}
+            id={id}
+            number={number}
+            changeId={changeId}
+          />
         ))}
       {filter &&
         contacts
@@ -16,7 +22,13 @@ const ContactList = ({ contacts, filter }) => (
             return contact.name.toLowerCase().includes(filter);
           })
           .map(({ id, name, number }) => (
-            <Contact key={id} id={id} name={name} number={number} />
+            <Contact
+              key={id}
+              id={id}
+              name={name}
+              number={number}
+              changeId={changeId}
+            />
           ))}
     </ul>
   </>
@@ -30,4 +42,6 @@ ContactList.propTypes = {
       number: PropTypes.string,
     })
   ),
+  filter: PropTypes.string,
+  changeId: PropTypes.func,
 };

@@ -1,19 +1,17 @@
 import PropTypes from "prop-types";
+
 import React from "react";
-const Contact = ({ id, name, number }) => {
+import { Item, Name, Number, RemoveButton } from "./ContactList.styled";
+const Contact = ({ id, name, number, changeId }) => {
   return (
-    <li key={id}>
-      <p>
-        {name}: <span>{number}</span>
-      </p>
-      <button
-        type="button"
-        id={id}
-        onClick={(e) => console.log(e.currentTarget)}
-      >
+    <Item key={id}>
+      <Name>
+        {name}: <Number>{number}</Number>
+      </Name>
+      <RemoveButton type="button" id={id} onClick={changeId}>
         Удалить
-      </button>
-    </li>
+      </RemoveButton>
+    </Item>
   );
 };
 export default Contact;

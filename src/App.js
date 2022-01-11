@@ -22,6 +22,13 @@ class App extends Component {
       this.setState({ contacts: [...this.state.contacts, data] });
     }
   };
+  onDelForId = (evt) => {
+    console.log(evt.currentTarget.id);
+    const list = this.state.contacts.filter(
+      ({ id }) => id !== evt.currentTarget.id
+    );
+    this.setState({ contacts: list });
+  };
 
   filterInputHandler = (input) => {
     let inputLC = input.toLowerCase();
@@ -35,7 +42,11 @@ class App extends Component {
       <>
         <Form onSubmit={this.formSubmitHandler} />
         <SearchFilterInput onChange={this.filterInputHandler} />
-        <ContactList contacts={contacts} filter={filter} />
+        <ContactList
+          contacts={contacts}
+          filter={filter}
+          changeId={this.onDelForId}
+        />
       </>
     );
   }
