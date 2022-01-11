@@ -23,10 +23,10 @@ class App extends Component {
     }
   };
   onDelForId = (evt) => {
-    console.log(evt.currentTarget.id);
     const list = this.state.contacts.filter(
       ({ id }) => id !== evt.currentTarget.id
     );
+    alert(`Вы удалили контакт ${evt.currentTarget.name}`);
     this.setState({ contacts: list });
   };
 

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-
-import React from "react";
 import { Item, Name, Number, RemoveButton } from "./ContactList.styled";
+import React from "react";
+
 const Contact = ({ id, name, number, changeId }) => {
   return (
     <Item key={id}>

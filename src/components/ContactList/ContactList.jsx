@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes, { shape } from "prop-types";
 import Contact from "./Contact";
+import { Titel, List } from "./ContactList.styled";
 const ContactList = ({ contacts, filter, changeId }) => (
   <>
-    <h2>Ваши контакты</h2>
+    <Titel> Ваши контакты </Titel>
 
-    <ul>
+    <List>
       {!filter &&
         contacts.map(({ id, name, number }) => (
           <Contact
@@ -30,7 +31,7 @@ const ContactList = ({ contacts, filter, changeId }) => (
               changeId={changeId}
             />
           ))}
-    </ul>
+    </List>
   </>
 );
 export default ContactList;

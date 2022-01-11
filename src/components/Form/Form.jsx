@@ -1,4 +1,6 @@
 import React from "react";
+import { Titel } from "../ContactList/ContactList.styled";
+import { AddForm, AddFormLabel, AddFormInput, AddFormBtn } from "./Form.styled";
 // import PropTypes from "prop-types";
 export default class Form extends React.Component {
   state = {
@@ -21,11 +23,11 @@ export default class Form extends React.Component {
   render() {
     return (
       <>
-        <h2>Добавьте контакт</h2>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Name
-            <input
+        <Titel>Добавьте контакт</Titel>
+        <AddForm onSubmit={this.handleSubmit}>
+          <AddFormLabel>
+            Имя
+            <AddFormInput
               type="text"
               name="name"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -34,10 +36,10 @@ export default class Form extends React.Component {
               onChange={this.handleChange}
               required
             />
-          </label>
-          <label>
-            Phone
-            <input
+          </AddFormLabel>
+          <AddFormLabel>
+            Телефон
+            <AddFormInput
               type="tel"
               name="number"
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -46,9 +48,9 @@ export default class Form extends React.Component {
               onChange={this.handleChange}
               required
             />
-          </label>
-          <button type="submit">отправить</button>
-        </form>
+          </AddFormLabel>
+          <AddFormBtn type="submit">Добавить в телефонную книгу</AddFormBtn>
+        </AddForm>
       </>
     );
   }
