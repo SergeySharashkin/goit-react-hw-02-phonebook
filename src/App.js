@@ -10,22 +10,32 @@ class App extends Component {
     filter: "",
   };
   formSubmitHandler = (data) => {
-    // console.log(data);
-    data.id = nanoid(5);
-    this.setState({ contacts: [...this.state.contacts, data] });
+    const state = this.state.contacts
+      .map((contact) => {
+        return contact.name.includes(data.name);
+      })
+      .includes(true);
+    if (state) {
+      alert("такой контакт уже есть");
+    } else {
+      data.id = nanoid(5);
+      this.setState({ contacts: [...this.state.contacts, data] });
+    }
   };
+
   filterInputHandler = (input) => {
-    this.setState({ filter: input });
-    console.log(input);
+    let inputLC = input.toLowerCase();
+    this.setState({ filter: inputLC });
+    console.log(inputLC);
   };
 
   render() {
-    const { contacts } = this.state;
+    const { contacts, filter } = this.state;
     return (
       <>
         <Form onSubmit={this.formSubmitHandler} />
         <SearchFilterInput onChange={this.filterInputHandler} />
-        <ContactList contacts={contacts} />
+        <ContactList contacts={contacts} filter={filter} />
       </>
     );
   }
