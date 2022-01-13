@@ -29,5 +29,5 @@ class SearchFilterInput extends Component {
 
 export default SearchFilterInput;
 SearchFilterInput.propTypes = {
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
 };

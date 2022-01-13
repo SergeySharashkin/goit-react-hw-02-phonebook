@@ -58,5 +58,5 @@ export default class Form extends React.Component {
   }
 }
 Form.propTypes = {
-  onSubmit: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
 };

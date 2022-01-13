@@ -37,9 +37,9 @@ export default ContactList;
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     shape({
-      key: PropTypes.string,
-      name: PropTypes.string,
-      number: PropTypes.string,
+      key: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
     })
   ),
 
