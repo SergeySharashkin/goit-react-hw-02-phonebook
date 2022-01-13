@@ -35,15 +35,25 @@ class App extends Component {
     this.setState({ filter: inputLC });
     console.log(inputLC);
   };
+  onFilter = () => {
+    const { filter, contacts } = this.state;
+    if (filter) {
+      return contacts.filter(({ name }) => name.toLowerCase().includes(filter));
+    } else {
+      return contacts;
+    }
+  };
 
   render() {
-    const { contacts, filter } = this.state;
+    const { filter } = this.state;
+    const filtredContacts = this.onFilter();
+    console.log(filtredContacts);
     return (
       <>
         <Form onSubmit={this.formSubmitHandler} />
         <SearchFilterInput onChange={this.filterInputHandler} />
         <ContactList
-          contacts={contacts}
+          contacts={filtredContacts}
           filter={filter}
           changeId={this.onDelForId}
         />

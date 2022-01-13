@@ -3,15 +3,9 @@ import { Label, Input, Form } from "./SearchFilterInput.styled";
 import PropTypes from "prop-types";
 
 class SearchFilterInput extends Component {
-  state = {
-    name: "",
-  };
   handleSearch = (event) => {
     const { value } = event.currentTarget;
-    this.setState({ name: value }, this.handleFilter);
-  };
-  handleFilter = () => {
-    this.props.onChange(this.state.name);
+    this.props.onChange(value);
   };
   render() {
     return (
@@ -22,7 +16,7 @@ class SearchFilterInput extends Component {
             type="text"
             name="filter"
             title="Name search. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            value={this.state.name}
+            // value={()=>{}}
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             onChange={this.handleSearch}
             required
@@ -32,6 +26,7 @@ class SearchFilterInput extends Component {
     );
   }
 }
+
 export default SearchFilterInput;
 SearchFilterInput.propTypes = {
   onChange: PropTypes.func,

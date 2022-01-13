@@ -2,22 +2,21 @@ import React from "react";
 import PropTypes, { shape } from "prop-types";
 import Contact from "./Contact";
 import { Titel, List } from "./ContactList.styled";
-const ContactList = ({ contacts, filter, changeId }) => (
+const ContactList = ({ contacts, changeId }) => (
   <>
     <Titel> Ваши контакты </Titel>
 
     <List>
-      {!filter &&
-        contacts.map(({ id, name, number }) => (
-          <Contact
-            key={id}
-            name={name}
-            id={id}
-            number={number}
-            changeId={changeId}
-          />
-        ))}
-      {filter &&
+      {contacts.map(({ id, name, number }) => (
+        <Contact
+          key={id}
+          name={name}
+          id={id}
+          number={number}
+          changeId={changeId}
+        />
+      ))}
+      {/*{filter &&
         contacts
           .filter((contact) => {
             return contact.name.toLowerCase().includes(filter);
@@ -30,7 +29,7 @@ const ContactList = ({ contacts, filter, changeId }) => (
               number={number}
               changeId={changeId}
             />
-          ))}
+          ))} */}
     </List>
   </>
 );
@@ -43,6 +42,6 @@ ContactList.propTypes = {
       number: PropTypes.string,
     })
   ),
-  filter: PropTypes.string,
+
   changeId: PropTypes.func,
 };

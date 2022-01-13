@@ -9,6 +9,7 @@ export default class Form extends React.Component {
     number: "",
     id: "",
   };
+
   handleChange = (event) => {
     const { name, value } = event.currentTarget;
     this.setState({ [name]: value });
