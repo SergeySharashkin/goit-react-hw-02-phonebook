@@ -4,11 +4,17 @@ import React from "react";
 
 const Contact = ({ id, name, number, changeId }) => {
   return (
-    <Item key={id}>
+    <Item>
       <Name>
         {name}: <Number>{number}</Number>
       </Name>
-      <RemoveButton type="button" id={id} onClick={changeId}>
+      <RemoveButton
+        type="button"
+        id={id}
+        onClick={() => {
+          changeId(id);
+        }}
+      >
         Удалить
       </RemoveButton>
     </Item>
@@ -16,7 +22,8 @@ const Contact = ({ id, name, number, changeId }) => {
 };
 export default Contact;
 Contact.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string,
-  number: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  changeId: PropTypes.func.isRequired,
 };

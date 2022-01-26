@@ -4,10 +4,12 @@ import { AddForm, AddFormLabel, AddFormInput, AddFormBtn } from "./Form.styled";
 // import PropTypes from "prop-types";
 import PropTypes from "prop-types";
 export default class Form extends React.Component {
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
   state = {
     name: "",
     number: "",
-    id: "",
   };
 
   handleChange = (event) => {
@@ -57,6 +59,3 @@ export default class Form extends React.Component {
     );
   }
 }
-Form.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};

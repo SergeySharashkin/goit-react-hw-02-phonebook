@@ -3,6 +3,9 @@ import { Label, Input, Form } from "./SearchFilterInput.styled";
 import PropTypes from "prop-types";
 
 class SearchFilterInput extends Component {
+  static propTypes = {
+    onChange: PropTypes.func.isRequired,
+  };
   handleSearch = (event) => {
     const { value } = event.currentTarget;
     this.props.onChange(value);
@@ -28,6 +31,3 @@ class SearchFilterInput extends Component {
 }
 
 export default SearchFilterInput;
-SearchFilterInput.propTypes = {
-  onChange: PropTypes.func.isRequired,
-};

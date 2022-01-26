@@ -16,20 +16,6 @@ const ContactList = ({ contacts, changeId }) => (
           changeId={changeId}
         />
       ))}
-      {/*{filter &&
-        contacts
-          .filter((contact) => {
-            return contact.name.toLowerCase().includes(filter);
-          })
-          .map(({ id, name, number }) => (
-            <Contact
-              key={id}
-              id={id}
-              name={name}
-              number={number}
-              changeId={changeId}
-            />
-          ))} */}
     </List>
   </>
 );
@@ -37,11 +23,11 @@ export default ContactList;
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     shape({
-      key: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
     })
   ),
 
-  changeId: PropTypes.func,
+  changeId: PropTypes.func.isRequired,
 };
